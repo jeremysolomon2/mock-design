@@ -1,0 +1,185 @@
+/* reset */
+
+* {
+  box-sizing: border-box;
+  font-family: arial;
+}
+
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* Body  */
+
+body {
+  padding: .75em;
+  margin: .5em;
+  border: .05em solid;
+}
+
+/* header */
+.header_top {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: .05em solid;
+  align-items: center;
+}
+
+.header_bottom ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header_top  h1 {
+  margin: .25em 0;
+}
+
+.header_top h3 {
+  color: white;
+  background-color: #1c89ef;
+  font-size: 1em;
+  padding: .25em .5em;
+  border-radius: 5px;
+}
+
+ul li {
+  display: inline-block;
+  padding: 0 .5em;
+}
+
+.button_week {
+  border: .05em solid;
+  border-radius: 2px 0 0 2px;
+  background: linear-gradient(white, gray);
+}
+
+.button_month {
+  border: .05em solid;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(gray, white)
+}
+
+.date_picker {
+  border: .05em solid;
+  border-radius: 2px;
+  margin-left: .5em;
+  text-align: center;
+}
+
+/* daily viewer minutes */
+
+#daily_viewer_minutes {
+  /* width: auto; */
+  /* height: 500px; */
+  border: .05em solid;
+  padding: .5em;
+}
+
+/* overview */
+.overview h2 {
+  margin: .75em 0 .25em 0;
+}
+
+.overview_item {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.overview_items  {
+  border: .05em solid;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.overview_items_bold {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.overview_items h5 {
+  margin: .5em
+}
+
+.overview_items p {
+  margin: 0 0 .5em 0;
+}
+
+/* geolocation */
+.geolocation_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#view_full_report {
+  color: #1c89ef;
+  font-size: .85em;
+}
+
+.geolocation_item {
+  display: flex;
+  /* flex-grow: 1; */
+  margin-bottom: 2em;
+}
+
+.geolocation_items {
+  width: 50%;
+  border: .05em solid;
+}
+
+.chart_header {
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #e6f0f4;
+  padding: .75em;
+  margin: 0;
+}
+
+.pie_chart {
+  display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
+   padding: 5px;
+}
+
+.line_chart_header_both {
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #e6f0f4;
+  padding: .75em;
+  margin: 0;
+}
+
+td {
+  width: 100%;
+  border: .05em solid;
+  border-collapse: collapse;
+}
+
+/* td {
+  border: .05em solid;
+} */
+/* bottom items */
+.bottom_item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom_items {
+  width: 47.5%;
+}
+
+.bottom_views_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* @media only screen and (min-width : 768px) { */

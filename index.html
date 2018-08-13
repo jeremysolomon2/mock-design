@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <title>Analytics</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+  google.charts.load('current', {'packages':['line']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'Day');
+    data.addColumn('number', 'Line 1');
+    data.addColumn('number', 'Line 2');
+    data.addColumn('number', 'Line 3');
+
+    data.addRows([
+      [1,  10, 80.8, 41.8],
+      [2,  30.9, 69.5, 32.4],
+      [3,  25.4,   57, 25.7],
+      [4,  11.7, 18.8, 10.5],
+      [5,  11.9, 17.6, 10.4],
+      [6,   8.8, 13.6,  7.7],
+      [7,   7.6, 12.3,  9.6],
+      [8,  12.3, 29.2, 10.6],
+      [9,  16.9, 42.9, 14.8],
+      [10, 12.8, 30.9, 11.6],
+      [11,  5.3,  7.9,  4.7],
+      [12,  6.6,  8.4,  5.2],
+      [13,  4.8,  6.3,  3.6],
+      [14,  4.2,  6.2,  3.4],
+      [15,  4.2,  6.2,  3.4],
+      [16,  4.2,  6.2,  3.4],
+      [17,  4.2,  6.2,  3.4],
+      [18,  4.2,  6.2,  3.4],
+    ]);
+
+    var options = {
+      chart: {
+        title: 'Daily Viewer Minutes',
+        // subtitle: 'in millions of dollars (USD)'
+      },
+      width: 1000,
+      height: 500,
+      axes: {
+        x: {
+          0: {side: 'bottom'}
+        }
+      }
+    };
+
+    var chart = new google.charts.Line(document.getElementById('daily_viewer_minutes'));
+
+    chart.draw(data, google.charts.Line.convertOptions(options));
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header_top">
+      <h1>Analytics</h1>
+      <h3>Return to Channel</h3>
+    </div>
+    <div class="header_bottom">
+      <ul>
+        <li class="button_week">Week</li>
+        <li class="button_month">Month</li>
+        <!-- <li class="date_picker">4/17/2011 - 5/16/2011</li> -->
+        <input class="date_picker" type="text" name="daterange" value="4/17/2011 - 5/16/2011" />
+        <script>
+        $(function() {
+          $('input[name="daterange"]').daterangepicker({
+            opens: 'left'
+          }, function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+          });
+        });
+        </script>
+      </ul>
+    </div>
+  </header>
+  <div id="daily_viewer_minutes"></div>
+  <div class="overview">
+    <h2>Overview</h2>
+    <div class="overview_item">
+      <div class="overview_items">
+        <h5>Total Viewer Minutes</h5>
+        <p><span class="overview_items_bold"> 4,288</span>&ensp; up 25%</p>
+      </div>
+      <div class="overview_items">
+        <h5>Total Streams</h5>
+        <p><span class="overview_items_bold"> 1,215</span>&ensp; up 5%</p>
+      </div>
+      <div class="overview_items">
+        <h5>Average Time per Viewer</h5>
+        <p><span class="overview_items_bold"> 00:00:54</span>&ensp; down 5%</p>
+      </div>
+      <div class="overview_items">
+        <h5>Total Unique Viewers</h5>
+        <p><span class="overview_items_bold"> 655</span>&ensp; down 1%</p>
+      </div>
+      <div class="overview_items">
+        <h5>% New visitors</h5>
+        <p><span class="overview_items_bold"> 54</span>&ensp; up 2%</p>
+      </div>
+    </div>
+  </div>
+  <div class="geolocation">
+    <div class="geolocation_header">
+      <h2>Geolocation</h2>
+      <p id="view_full_report">View Full Report</p>
+    </div>
+    <div class="geolocation_item">
+      <div class="geolocation_items">
+        <p class="chart_header">Streams by County</p>
+        <img class="pie_chart"src="pie_chart.png" alt="pie chart" width="200px">
+      </div>
+      <div class="geolocation_items">
+        <table>
+          <tr>
+            <th class="line_chart_header_both">County/Territory</th>
+            <th class="line_chart_header_both">Streams</th>
+          </tr>
+          <tr>
+            <td>United States 52%</td>
+            <td>314</td>
+          </tr>
+          <tr>
+            <td>Indonesia 12%</td>
+            <td>64</td>
+          </tr>
+          <tr>
+            <td>India 12%</td>
+            <td>51</td>
+          </tr>
+          <tr>
+            <td>United Kingdom 10%</td>
+            <td>47</td>
+          </tr>
+          <tr>
+            <td>Mexico 6%</td>
+            <td>44</td>
+          </tr>
+          <tr>
+            <td>Span 4%</td>
+            <td>37</td>
+          </tr>
+          <tr>
+            <td>Turkey 4%</td>
+            <td>34</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="bottom_item">
+    <div class="bottom_items video_views">
+      <div class="bottom_views_header">
+        <h2>Video Views</h2>
+        <p id="view_full_report">View Full Report</p>
+      </div>
+      <div class="">
+        <table>
+          <tr>
+            <th class="line_chart_header_both">County/Territory</th>
+            <th class="line_chart_header_both">Streams</th>
+          </tr>
+          <tr>
+            <td>United States 52%</td>
+            <td>314</td>
+          </tr>
+          <tr>
+            <td>Indonesia 12%</td>
+            <td>64</td>
+          </tr>
+          <tr>
+            <td>India 12%</td>
+            <td>51</td>
+          </tr>
+          <tr>
+            <td>United Kingdom 10%</td>
+            <td>47</td>
+          </tr>
+          <tr>
+            <td>Mexico 6%</td>
+            <td>44</td>
+          </tr>
+          <tr>
+            <td>Span 4%</td>
+            <td>37</td>
+          </tr>
+          <tr>
+            <td>Turkey 4%</td>
+            <td>34</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="bottom_items post_views">
+      <div class="bottom_views_header">
+        <h2>Post Views</h2>
+        <p id="view_full_report">View Full Report</p>
+      </div>
+      <div class="">
+        <table>
+          <tr>
+            <th class="line_chart_header_both">County/Territory</th>
+            <th class="line_chart_header_both">Streams</th>
+          </tr>
+          <tr>
+            <td>United States 52%</td>
+            <td>314</td>
+          </tr>
+          <tr>
+            <td>Indonesia 12%</td>
+            <td>64</td>
+          </tr>
+          <tr>
+            <td>India 12%</td>
+            <td>51</td>
+          </tr>
+          <tr>
+            <td>United Kingdom 10%</td>
+            <td>47</td>
+          </tr>
+          <tr>
+            <td>Mexico 6%</td>
+            <td>44</td>
+          </tr>
+          <tr>
+            <td>Span 4%</td>
+            <td>37</td>
+          </tr>
+          <tr>
+            <td>Turkey 4%</td>
+            <td>34</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
